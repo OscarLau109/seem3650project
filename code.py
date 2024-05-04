@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-# Load the data from the Excel file
+# Load the Excel file
 df = pd.read_excel('data.xlsx', sheet_name='road speed')
 
 # Create a list of all districts
@@ -18,7 +18,7 @@ for district in districts:
 
     # Create the scatter chart
     plt.scatter(df_filtered['time'].dt.hour, 
-    df_filtered['speed'], c=df_filtered['segment_id'], marker=Marker(color='blue', symbol='o', size=10))
+                df_filtered['speed'], c=df_filtered['segment_id'])
 
     # Set the x-axis label
     plt.xlabel('time')
@@ -31,12 +31,13 @@ for district in districts:
 
     # Show the plot
     plt.savefig(f'Road Speed Distribution in {district}.png')
+    plt.close()
 
 # Load the data from the Excel file 
 data = pd.read_excel('data.xlsx', sheet_name='Population')
 
 # Create a bar chart using the 'District' as x-axis and 'Working population worked in the Different District Council district as their residence' as y-axis
-plt.bar(data['District'], data['Working population worked in the Different District Council district as their residence'], yerr=data['Working population worked in the Different District Council district as their residence'] - data['Working population worked in the Different District Council district as their residence'].mean())
+plt.bar(data['District'], data['Working population worked in the Different District Council district as their residence'])
 
 # Set the x-axis label
 plt.xlabel('District')
@@ -47,8 +48,8 @@ plt.ylabel('Working Population')
 # Set the title of the chart
 plt.title('Working Population by District')
 
-# Rotate the index labels for the x-axis
 plt.xticks(rotation=30)
 
 # Show the plot
 plt.savefig('Working Population by District.png')
+plt.close()
