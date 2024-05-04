@@ -41,10 +41,10 @@ These allow visual comparison of speed and demographic trends across Hong Kong.
 The input data is from Hong Kong government sources. 
 1.	Traffic Speeds of Road Network Segments (Processed Data)
 Link: https://data.gov.hk/en-data/dataset/hk-td-sm_4-traffic-data-strategic-major-roads
-2.	Locations of traffic detectors
+3.	Locations of traffic detectors
 Link: https://data.gov.hk/en-data/dataset/hk-td-sm_4-traffic-data-strategic-major-roads
-3.	2021 Population Census - Table E2021J: 2021 Population Census - District Profiles (Housing Market Areas and Building Groups) [Proportion of working population with a fixed place of work in Hong Kong who worked in the same District Council district as their residence (including those working at home)]
+4.	2021 Population Census - Table E2021J: 2021 Population Census - District Profiles (Housing Market Areas and Building Groups) [Proportion of working population with a fixed place of work in Hong Kong who worked in the same District Council district as their residence (including those working at home)]
 Link: https://data.gov.hk/en-data/dataset/hk-censtatd-census21c-d5212110 
-4.	Territorial Population and Employment Data Matrix (2019-based Generalised Version)
+5.	Territorial Population and Employment Data Matrix (2019-based Generalised Version)
 Link: https://data.gov.hk/en-data/dataset/hk-pland-pland1-2019-based-tpedm
 
