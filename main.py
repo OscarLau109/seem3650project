@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+from sklearn.cluster import KMeans
+import numpy as np
 
 # Load the Excel file
 df = pd.read_excel('data.xlsx', sheet_name='road speed')
@@ -53,3 +55,55 @@ plt.xticks(rotation=30)
 # Show the plot
 plt.savefig('Working Population by District.png')
 plt.close()
+
+
+
+# Classification
+
+
+speeds = df['speed'].values 
+kmeans = KMeans(n_clusters=3, random_state=0).fit(speeds.reshape(-1,1))
+labels = kmeans.labels_
+
+df['speed_class'] = labels 
+
+# Visualize classification
+# Convert the time column to datetime.datetime
+df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
+
+plt.scatter(df['time'], df['speed'], c=labels)
+plt.xticks(rotation=30)
+plt.savefig('Speed_Classification.png')
+plt.close()
+
+
+
+# Supervised Learning 
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+
+
+# Encode district as dummy variables
+district_dummies = pd.get_dummies(df['District']) 
+
+# Concat dummy cols with original data  
+df = pd.concat([df, district_dummies], axis=1)
+
+# Drop original district col
+df.drop('District', axis=1, inplace=True)
+
+df['time'] = df['time'].astype(np.int64) / 10**9
+
+# Now district is numeric
+X = df[['time'] + list(district_dummies.columns)]
+y = df['speed']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y) 
+
+rf = RandomForestRegressor().fit(X_train, y_train)
+predictions = rf.predict(X_test)
+
+# Evaluate model
+from sklearn.metrics import mean_absolute_error
+print('Mean Absolute Error:', mean_absolute_error(y_test, predictions))
