@@ -25,7 +25,7 @@ pip install -r requirements.txt
 python main.py
 ``` 
 
-3. The output images will be saved to the `output` folder.
+3. The output images will be saved to the root folder.
 
 ## Functions
 The program performs the following steps:
