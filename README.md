@@ -1,6 +1,6 @@
-# Road Speed and Population Analysis Tool
+# Road Speed Analysis and Forecasting Tool
 
-This Python script analyzes road speed and population data from Hong Kong districts to visualize trends.
+This Python program analyzes road speed data from various districts in Hong Kong using classification, visualization and machine learning techniques for modeling and prediction.
 
 ## Getting Started
 
@@ -27,14 +27,28 @@ python analysis.py
 
 3. The output images will be saved to the `output` folder.
 
+## Functions
+The program performs the following steps:
+1. Loads and preprocesses the speed and population data
+2. Creates scatter plots of speed vs time for each district
+3. Applies K-Means clustering to classify speeds
+4. Generates a classification plot
+5. Encodes categorical variables
+6. Splits data for supervised learning
+7. Trains a Random Forest regressor for forecasting
+8. Evaluates model performance
+
 ## Output
 
 The script produces two types of plots:
 
-- Scatter plots of road speed vs time for each district
+- Scatter plots of District wise speed distribution
 - Bar plot of working population by district
+- Scatter plot of speed classification
+- MAE from Random Forest regression predictions
 
 These allow visual comparison of speed and demographic trends across Hong Kong.
+
 
 ## Data
 
