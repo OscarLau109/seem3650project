@@ -22,7 +22,7 @@ pip install -r requirements.txt
 2. Run the Python script:
 
 ```
-python analysis.py
+python main.py
 ``` 
 
 3. The output images will be saved to the `output` folder.
